@@ -1,5 +1,9 @@
 <h1 align="center">
-    IG.News
+  <img alt="Logo" src="./public/images/logo.svg" alt="ig.News">
+</h1>
+
+<h1 align="center">
+    ig.News - Next.js
 </h1>
 <p align="center">Aplicação para inscrição de newsletter com pagamento via stripe</p>
 
@@ -16,7 +20,7 @@
 
 O projeto tem como objetivo o estudo e desenvolvimento de uma aplicação em ReactJS com NextJS para listagem de posts e sistema de inscrição(subscription).
 
-A aplicação foi desenvolvida utilizando o framework NextJS aplicando conceitos como consumo de API externas, API Root, Server Side Rendering (SSR), Static Site Generation (SSG), utilização do STRIPE para pagamentos, NextAuth para autenticação com Github e FaunaDB para salvar as informações do usuário em um banco de dados.
+A aplicação foi desenvolvida utilizando o framework NextJS aplicando conceitos como consumo de API externas, API Root, Server Side Rendering (SSR), Static Site Generation (SSG), STRIPE para pagamentos das subscriptions, NextAuth para autenticação com Github, FaunaDB para armazenar as informações do usuário em um banco de dados e Prismic CMS para adição e gerenciamento do conteúdo dos posts.
 
 O projeto foi desenvolvido como pratica das aulas do modulo 03 do [Ignite da Rocketseat](https://rocketseat.com.br/)
 
@@ -30,9 +34,10 @@ Abaixo as tecnologias utilizadas para construção da aplicação
 - [NextJS](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [SASS](https://sass-lang.com/)
+- [Next-Auth](https://next-auth.js.org/)
 - [Stripe](https://stripe.com/)
-- [NextAuth](https://next-auth.js.org/)
 - [FaunaDB](https://fauna.com/)
+- [Prismic CMS](https://prismic.io/)
 
 ---
 
@@ -40,9 +45,19 @@ Abaixo as tecnologias utilizadas para construção da aplicação
 
 ### **Requisitos**
 
-Necessário ter instalado o [Git](https://git-scm.com/), [Yarn](https://classic.yarnpkg.com),
-[Stripe CLI](https://stripe.com/docs/stripe-cli)
+Necessário realizar as instalações:
 
+- [Git](https://git-scm.com/)
+- [Yarn](https://classic.yarnpkg.com)
+- [Stripe CLI](https://stripe.com/docs/stripe-cli)
+
+Criar conta e configurar os serviços externos:
+
+- [Stripe](https://stripe.com/)
+- [FaunaDB](https://fauna.com/)
+- [Prismic CMS](https://prismic.io/)
+
+*Configurações dos serviços estão localizadas no arquivo servicesConfig.md na raiz do projeto.*
 
 ### **Clone do projeto**
 
@@ -59,7 +74,12 @@ $ cd ignews
 # Execute yarn para instalar as dependências
 $ yarn
 
-# Execute stripe listen para ouvir eventos do webhook em modo de desenvolvimento
+# Na raiz do projeto crie uma copia do arquivo .env.local.example
+# Altere o nome da copia para .env.local
+# Preencha as variáveis ambiente de acordo com as instruções
+$ cp .env.local.example .env.local
+
+# Execute stripe listen para ouvir eventos do webhook
 $ stripe listen --forward-to localhost:3000/api/webhooks 
 
 # Para iniciar a aplicação
